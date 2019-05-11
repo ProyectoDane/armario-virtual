@@ -6,6 +6,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.uba.fi.armariovirtual.R;
 import ar.uba.fi.armariovirtual.modelo.Prenda;
 import ar.uba.fi.armariovirtual.modelo.adaptadores.AdaptadorPrenda;
 
@@ -31,5 +32,14 @@ public class ListadoPrendasActivity extends ListadoVestuarioActivity {
 
         prendasBtn.setSelected(true);
 
+
+        findViewById(R.id.nuevo_item).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent myIntent = new Intent(ListadoPrendasActivity.this, DetallePrendaActivity.class);
+                myIntent.putExtra(DetallePrendaActivity.PARAMETRO_INTENT_ID_PRENDA, Long.valueOf(-1));
+                startActivity(myIntent);
+            }
+        });
     }
 }
