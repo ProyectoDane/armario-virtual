@@ -122,7 +122,8 @@
 
     <!-- Pantalla Configuracion -->
     <dimen name="ancho_opcion_clasificacion">200dp</dimen>
-    <dimen name="margen_clasificacion">20dp</dimen>
+    <dimen name="margen_clasificacion_h">20dp</dimen>
+    <dimen name="margen_clasificacion_v">10dp</dimen>
     <dimen name="altura_boton_eliminar">20dp</dimen>
     <dimen name="ancho_boton_eliminar">20dp</dimen>
 

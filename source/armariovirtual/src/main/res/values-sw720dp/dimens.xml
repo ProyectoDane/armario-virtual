@@ -74,6 +74,13 @@
 
     <dimen name="espacio_entre_items_grilla">30dp</dimen>
 
+    <!-- Pantalla Configuracion -->
+    <dimen name="ancho_opcion_clasificacion">380dp</dimen>
+    <dimen name="margen_clasificacion_h">50dp</dimen>
+    <dimen name="margen_clasificacion_v">30dp</dimen>
+    <dimen name="altura_boton_eliminar">40dp</dimen>
+    <dimen name="ancho_boton_eliminar">40dp</dimen>
+
     <!-- Aprendo A Vestirme -->
     <dimen name="aav_lecciones_grilla_column_width">260dp</dimen>
 

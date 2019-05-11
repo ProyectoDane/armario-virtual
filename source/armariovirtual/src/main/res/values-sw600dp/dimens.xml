@@ -115,7 +115,10 @@
 
     <!-- Pantalla Configuracion -->
     <dimen name="ancho_opcion_clasificacion">300dp</dimen>
-    <dimen name="margen_clasificacion">50dp</dimen>
+    <dimen name="margen_clasificacion_h">50dp</dimen>
+    <dimen name="margen_clasificacion_v">20dp</dimen>
+    <dimen name="altura_boton_eliminar">30dp</dimen>
+    <dimen name="ancho_boton_eliminar">30dp</dimen>
 
     <dimen name="vestuario_grilla_column_width">250dp</dimen>
 

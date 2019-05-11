@@ -15,7 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
         android:id="@+id/titulo_clasificaciones"
         style="@style/TextoTitulo"
@@ -44,13 +43,13 @@
             android:id="@+id/nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margen_clasificacion"
-            android:layout_marginRight="@dimen/margen_clasificacion"
+            android:layout_marginLeft="@dimen/margen_clasificacion_h"
+            android:layout_marginTop="@dimen/margen_clasificacion_v"
+            android:layout_marginRight="@dimen/margen_clasificacion_h"
             android:gravity="center"
             android:hint="@string/hint_nombre_clasificacion"
             android:imeOptions="actionDone"
             android:inputType="text"
-            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -60,13 +59,13 @@
             android:id="@+id/pregunta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margen_clasificacion"
-            android:layout_marginRight="@dimen/margen_clasificacion"
+            android:layout_marginLeft="@dimen/margen_clasificacion_h"
+            android:layout_marginTop="@dimen/margen_clasificacion_v"
+            android:layout_marginRight="@dimen/margen_clasificacion_h"
             android:gravity="center"
             android:hint="@string/hint_pregunta_clasificacion"
             android:imeOptions="actionDone"
             android:inputType="text"
-            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/lista_opciones"
             app:layout_constraintLeft_toLeftOf="@id/nombre"
             app:layout_constraintRight_toRightOf="@id/nombre"
@@ -76,8 +75,8 @@
             android:id="@+id/lista_opciones"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/margen_vertical_boton"
-
+            android:layout_marginTop="@dimen/margen_clasificacion_v"
+            android:layout_marginBottom="@dimen/margen_clasificacion_v"
             android:divider="@android:color/transparent"
             android:fillViewport="true"
             android:scrollbarFadeDuration="0"
@@ -88,12 +87,12 @@
 
         <ImageButton
             android:id="@+id/nueva_opcion"
-            android:layout_width="@dimen/altura_boton_evento_lista"
-            android:layout_height="@dimen/ancho_boton_evento_lista"
+            android:layout_width="@dimen/ancho_boton_eliminar"
+            android:layout_height="@dimen/altura_boton_eliminar"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/margen_v_form"
             android:layout_marginLeft="@dimen/margen_h_form"
             android:layout_marginRight="@dimen/margen_h_form"
+            android:layout_marginBottom="@dimen/margen_v_form"
             android:adjustViewBounds="true"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
@@ -104,47 +103,47 @@
 
     </android.support.constraint.ConstraintLayout>
 
-
     <ar.uba.fi.armariovirtual.utils.BotonSombra
         android:id="@+id/borrar_clasificacion"
         style="@style/Boton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margen_h_form"
-        android:layout_marginRight="@dimen/margen_h_form"
         android:layout_marginTop="@dimen/margen_v_form"
+        android:layout_marginRight="@dimen/margen_h_form"
         android:drawableLeft="@drawable/borrar"
         android:text="@string/boton_eliminar"
-        app:layout_constraintBottom_toBottomOf="@+id/boton_guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/nueva_clasificacion"
-        app:layout_constraintTop_toTopOf="@+id/boton_guardar" />
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ar.uba.fi.armariovirtual.utils.BotonSombra
         android:id="@+id/nueva_clasificacion"
         style="@style/Boton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margen_h_form"
-        android:layout_marginRight="@dimen/margen_h_form"
         android:layout_marginTop="@dimen/margen_v_form"
+        android:layout_marginRight="@dimen/margen_h_form"
         android:drawableLeft="@drawable/agregar"
         android:text="@string/boton_nueva"
-        app:layout_constraintBottom_toBottomOf="@+id/boton_guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/boton_guardar"
-        app:layout_constraintTop_toTopOf="@+id/boton_guardar" />
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ar.uba.fi.armariovirtual.utils.BotonSombra
         android:id="@+id/boton_guardar"
         style="@style/Boton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margen_h_form"
-        android:layout_marginRight="@dimen/margen_h_form"
         android:layout_marginTop="@dimen/margen_v_form"
+        android:layout_marginRight="@dimen/margen_h_form"
         android:drawableLeft="@drawable/guardar"
         android:text="@string/boton_guardar_cambios"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_info" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_info"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageView
         android:id="@+id/anterior"
