@@ -23,6 +23,9 @@
     <dimen name="ancho_boton_mediano">220dp</dimen>
     <dimen name="texto_boton_mediano">38dp</dimen>
 
+    <dimen name="altura_imagen_conjunto_evento">300dp</dimen>
+    <dimen name="ancho_imagen_conjunto_evento">300dp</dimen>
+
     <dimen name="alto_boton_chato">100dp</dimen>
     <dimen name="ancho_boton_chato">220dp</dimen>
     <dimen name="texto_boton_chato">38dp</dimen>
