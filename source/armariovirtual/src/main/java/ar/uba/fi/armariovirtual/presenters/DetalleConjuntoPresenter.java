@@ -105,6 +105,7 @@ public class DetalleConjuntoPresenter {
         // Guardar clasificaciones
         if (clasificaciones != null) {
             for (Clasificacion clasificacion : clasificaciones) {
+                clasificacion.save();
                 conjuntoEditado.agregarClasificacion(clasificacion);
             }
         }
