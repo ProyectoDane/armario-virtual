@@ -6,6 +6,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.uba.fi.armariovirtual.R;
 import ar.uba.fi.armariovirtual.modelo.Conjunto;
 import ar.uba.fi.armariovirtual.modelo.adaptadores.AdaptadorConjunto;
 
@@ -29,5 +30,14 @@ public class ListadoConjuntosActivity extends ListadoVestuarioActivity {
         });
 
         conjuntosBtn.setSelected(true);
+
+        findViewById(R.id.nuevo_item).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent myIntent = new Intent(ListadoConjuntosActivity.this, DetalleConjuntoActivity.class);
+                myIntent.putExtra(DetalleConjuntoActivity.PARAMETRO_INTENT_ID_CONJUNTO, Long.valueOf(-1));
+                startActivity(myIntent);
+            }
+        });
     }
 }

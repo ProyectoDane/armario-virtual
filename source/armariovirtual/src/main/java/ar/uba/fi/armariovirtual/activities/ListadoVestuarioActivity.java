@@ -46,15 +46,6 @@ public abstract class ListadoVestuarioActivity extends BarraBaseActivity {
 
         inicializarBotones();
 
-        findViewById(R.id.nuevo_item).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-
-                Intent myIntent = new Intent(ListadoVestuarioActivity.this, DetallePrendaActivity.class);
-                myIntent.putExtra(DetallePrendaActivity.PARAMETRO_INTENT_ID_PRENDA, Long.valueOf(-1));
-                startActivity(myIntent);
-            }
-        });
-
         findViewById(R.id.btn_filtros).setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 onButtonShowPopupWindowClick(_gridView);
