@@ -26,6 +26,12 @@
     <dimen name="altura_imagen_conjunto_evento">300dp</dimen>
     <dimen name="ancho_imagen_conjunto_evento">300dp</dimen>
 
+    <dimen name="altura_imagen_evento_lista">200dp</dimen>
+    <dimen name="ancho_imagen_evento_lista">200dp</dimen>
+    <dimen name="sub_texto_lista_eventos">30dp</dimen>
+    <dimen name="altura_boton_evento_lista">45dp</dimen>
+    <dimen name="ancho_boton_evento_lista">45dp</dimen>
+
     <dimen name="alto_boton_chato">100dp</dimen>
     <dimen name="ancho_boton_chato">220dp</dimen>
     <dimen name="texto_boton_chato">38dp</dimen>
