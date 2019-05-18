@@ -90,7 +90,8 @@
     </android.support.constraint.ConstraintLayout>
 
 
-    <!-- TODO Para usar durante el desarrollo, borrar -->
+    <!-- Habilitar para usar durante el desarrollo -->
+    <!--
     <ar.uba.fi.armariovirtual.utils.BotonSombra
         android:id="@+id/ajustes_btn"
         style="@style/Boton"
@@ -102,5 +103,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_info"
         app:layout_constraintLeft_toRightOf="@+id/btn_ayuda" />
-
+    -->
 </android.support.constraint.ConstraintLayout>
