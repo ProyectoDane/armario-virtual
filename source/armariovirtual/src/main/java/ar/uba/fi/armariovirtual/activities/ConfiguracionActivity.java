@@ -23,7 +23,8 @@ public class ConfiguracionActivity extends BarraBaseActivity {
                     @Override
                     public void ejecutar() {
                         Intent myIntent = new Intent(ConfiguracionActivity.this, EditarClasificacionesActivity.class);
-                        startActivity(myIntent);                    }
+                        startActivity(myIntent);
+                    }
                 };
                 Autenticacion.instancia().autenticarYEjecutar(ejecutarSiAdmin, getFragmentManager());
             }
@@ -41,7 +42,8 @@ public class ConfiguracionActivity extends BarraBaseActivity {
                     @Override
                     public void ejecutar() {
                         Intent myIntent = new Intent(ConfiguracionActivity.this, EditarProteccionActivity.class);
-                        startActivity(myIntent);                    }
+                        startActivity(myIntent);
+                    }
                 };
                 Autenticacion.instancia().autenticarYEjecutar(ejecutarSiAdmin, getFragmentManager());
             }
@@ -53,14 +55,15 @@ public class ConfiguracionActivity extends BarraBaseActivity {
             AudioFondo.setSilencio(true);
         }
 
-        /**TODO Para usar durante el desarrollo, borrar**/
-        findViewById(R.id.ajustes_btn).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                Intent myIntent = new Intent(ConfiguracionActivity.this, AjustesDesarrolloActivity.class);
-                startActivity(myIntent);
-            }
-        });
-        /****/
+        /**Habilitar para usar durante el desarrollo**/
+        /**
+         findViewById(R.id.ajustes_btn).setOnClickListener(new View.OnClickListener() {
+         public void onClick(View arg0) {
+         Intent myIntent = new Intent(ConfiguracionActivity.this, AjustesDesarrolloActivity.class);
+         startActivity(myIntent);
+         }
+         });
+         **/
 
         setUpBarraConBotonDeAtras(false, false, new Intent(ConfiguracionActivity.this, MenuPrincipalActivity.class));
     }
