@@ -95,7 +95,7 @@
     <string name="dialogo_salir_cambios_titulo">SALIR</string>
     <string name="dialogo_salir_cambios_texto">¿ESTÁS SEGURO DE QUE DESEAS SALIR? SI TIENES CAMBIOS SIN GUARDAR, SE PERDERÁN</string>
 
-    <string name="dialogo_notificacion_titulo">¿CUÁNDO QUIERES RECIBIR LA NOTIFICACIÓN</string>
+    <string name="dialogo_notificacion_titulo">¿CUÁNDO QUIERES RECIBIR LA NOTIFICACIÓN?</string>
 
     <string name="titulo_detalle_evento_nuevo">NUEVO EVENTO</string>
     <string name="titulo_detalle_evento_editar">EDITAR EVENTO</string>
