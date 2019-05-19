@@ -482,21 +482,6 @@ public class InicializacionBD {
 
         actualizarImagenesConjuntos(); // En un método aparte porque tiene que ejecutarse asíncrono y en serie
 
-
-        // =================================
-        //          EVENTOS
-        // =================================
-
-        // Cumpleaños
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 15);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.YEAR, 2019);
-        calendar.set(Calendar.MONTH, Calendar.MAY);
-        calendar.set(Calendar.DATE, 25);
-        EventoCalendario cumple = new EventoCalendario(calendar.getTime(), conjuntoVerano, "CUMPLEAÑOS ALFREDO");
-        cumple.save();
     }
 
     private static void actualizarImagenesConjuntos() {
