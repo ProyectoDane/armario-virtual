@@ -73,7 +73,6 @@ public class DetalleEventoPresenter {
                 eventoEditado.cancelarNotificacion(view);
             } else {
                 eventoEditado.cancelarNotificacion(view);
-                //TODO cambiar activity a ejecutar
                 String id = eventoEditado.getId().toString();
                 eventoEditado.crearNotificacion(view, DetalleEventoActivity.class, new Pair<>(DetalleEventoActivity.PARAMETRO_INTENT_ID_EVENTO, id), indiceTiempoNotificacion);
             }

@@ -135,10 +135,10 @@ public class DetalleEventoActivity extends BarraBaseActivity {
             }
         });
 
+        presenter.setUpEvento();
+
         setUpDatePicker();
         actualizarDatePicker();
-
-        presenter.setUpEvento();
 
         setUpBarraConBotonDeAtras(false, false, null);
 
