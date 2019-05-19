@@ -20,6 +20,7 @@ public class DetalleConjuntoPresenter {
 
     private DetalleConjuntoActivity view;
     private Conjunto conjuntoEditado;
+    private Boolean necesitaActualizarImagen;
 
 
     public DetalleConjuntoPresenter(DetalleConjuntoActivity view, Long idConjunto) {
@@ -27,6 +28,7 @@ public class DetalleConjuntoPresenter {
         if (idConjunto > -1) {
             conjuntoEditado = ObjetoPersistente.encontrarPorId(Conjunto.class, idConjunto);
         }
+        necesitaActualizarImagen = false;
     }
 
 
@@ -80,18 +82,18 @@ public class DetalleConjuntoPresenter {
             ComandoAdministrador ejecutarSiAdmin = new ComandoAdministrador() {
                 @Override
                 public void ejecutar() {
-                    guardar(nombre, favorito, clasificaciones, prendas);
-                    view.salir();
+                    guardar(nombre, favorito, clasificaciones, prendas, necesitaActualizarImagen);
+                    if(!necesitaActualizarImagen) view.salir();
                 }
             };
             Autenticacion.instancia().autenticarYEjecutar(ejecutarSiAdmin, view.getFragmentManager());
         } else {
-            guardar(nombre, favorito, clasificaciones, prendas);
-            view.salir();
+            guardar(nombre, favorito, clasificaciones, prendas, necesitaActualizarImagen);
+            if(!necesitaActualizarImagen) view.salir();
         }
     }
 
-    private void guardar(String nombre, boolean favorito, List<Clasificacion> clasificaciones, List<Prenda> prendas) {
+    private void guardar(String nombre, boolean favorito, List<Clasificacion> clasificaciones, List<Prenda> prendas, Boolean actualizarImagenYSalir) {
         if (conjuntoEditado == null)
             conjuntoEditado = new Conjunto(nombre);
 
@@ -123,11 +125,15 @@ public class DetalleConjuntoPresenter {
             }
         }
 
-        conjuntoEditado.actualizarImagen(new ICallback() {
-            @Override
-            public void onSuccess() {
-            }
-        });
+        if(actualizarImagenYSalir)
+        {
+            conjuntoEditado.actualizarImagen(new ICallback() {
+                @Override
+                public void onSuccess() {
+                    view.salir();
+                }
+            });
+        }
     }
 
     public void agregarPrenda(Long idPrenda, List<Prenda> prendas) {
@@ -143,6 +149,7 @@ public class DetalleConjuntoPresenter {
             }
             if (!repetida) {
                 prendas.add(prenda);
+                necesitaActualizarImagen = true;
             }
             obtenerOCrearPrendas(prendas);
         }
@@ -159,6 +166,7 @@ public class DetalleConjuntoPresenter {
         }
         if (prendaEnConj != null) {
             prendas.remove(prendaEnConj);
+            necesitaActualizarImagen = true;
         }
 
         obtenerOCrearPrendas(prendas);
