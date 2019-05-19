@@ -1,20 +1,32 @@
 package ar.uba.fi.armariovirtual.activities.aprendoavestirme;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Rect;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.TextView;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import ar.uba.fi.armariovirtual.R;
-import ar.uba.fi.armariovirtual.activities.BarraBaseActivity;
 import ar.uba.fi.armariovirtual.activities.cuestionario.CuestionarioBaseActivityArmarioVirtual;
-import ar.uba.fi.armariovirtual.modelo.Leccion;
-import ar.uba.fi.utilidadesdane.cuestionario.CuestionarioBaseActivity;
 import ar.uba.fi.utilidadesdane.utils.Ejecutable;
+
+import com.github.jinatonic.confetti.ConfettiManager;
+import com.github.jinatonic.confetti.ConfettiSource;
+import com.github.jinatonic.confetti.ConfettoGenerator;
+import com.github.jinatonic.confetti.Utils;
+import com.github.jinatonic.confetti.confetto.BitmapConfetto;
+import com.github.jinatonic.confetti.confetto.Confetto;
+
+import java.util.List;
+import java.util.Random;
 
 public class AprendoAVestirmePreguntasActivity extends CuestionarioBaseActivityArmarioVirtual {
 
@@ -36,11 +48,42 @@ public class AprendoAVestirmePreguntasActivity extends CuestionarioBaseActivityA
     @Override
     protected void MostrarFeedbackOpcionCorrecta(View opcionElegidaView, final Ejecutable onComplete)
     {
-//        AnimarVista(findViewById(R.id.resultado_correcto), AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in), onComplete);
+        ViewGroup container = (ViewGroup) findViewById(android.R.id.content);
+        final Resources res = container.getResources();
+        int defaultVelocityFast     = res.getDimensionPixelOffset(com.github.jinatonic.confetti.R.dimen.default_velocity_fast);
 
-        Toast toast = Toast.makeText(this, "CUSTOM FEEDBACK OPCION CORRECTA", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-        toast.show();
+        final List<Bitmap> allPossibleConfetti = com.github.jinatonic.confetti.Utils.generateConfettiBitmaps(new int[] { Color.RED, Color.YELLOW, Color.BLUE, Color.WHITE }, 40);
+        final int numConfetti = allPossibleConfetti.size();
+        final ConfettoGenerator generator = new ConfettoGenerator() {
+            @Override
+            public Confetto generateConfetto(Random random) {
+                final Bitmap bitmap = allPossibleConfetti.get(random.nextInt(numConfetti));
+                return new BitmapConfetto(bitmap);
+            }
+        };
+
+        final Context context = container.getContext();
+        final int x = container.getWidth() / 2;
+        final int y = container.getHeight() / 2;
+        final ConfettiSource confettiSource = new ConfettiSource(x, y);
+
+        new ConfettiManager(context, generator, confettiSource, container)
+            .setTTL(2500)
+            .setBound(new Rect(
+                    0, 0,
+                    container.getWidth(), container.getHeight()
+            ))
+            .setVelocityX(0, defaultVelocityFast)
+            .setVelocityY(0, defaultVelocityFast)
+            .enableFadeOut(Utils.getDefaultAlphaInterpolator())
+            .setInitialRotation(180, 180)
+            .setRotationalAcceleration(360, 180)
+            .setTargetRotationalVelocity(360)
+            .setEmissionDuration(1000)
+            .setEmissionRate(200)
+            .animate();
+
+        MediaPlayer.create(this,R.raw.respuesta_correcta).start();
 
         // Para continuar con un delay y darle tiempo a la animación
         Handler handler = new Handler();
@@ -57,9 +100,7 @@ public class AprendoAVestirmePreguntasActivity extends CuestionarioBaseActivityA
     @Override
     protected void MostrarFeedbackOpcionIncorrecta(View opcionElegidaView, final Ejecutable onComplete)
     {
-//        AnimarVista(findViewById(R.id.resultado_incorrecto), AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in), onComplete);
-
-        Toast toast = Toast.makeText(this, "CUSTOM FEEDBACK OPCION INCORRECTA", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, "INTENTA NUEVAMENTE", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast.show();
 
@@ -78,10 +119,44 @@ public class AprendoAVestirmePreguntasActivity extends CuestionarioBaseActivityA
     @Override
     protected void CuestionarioCompleto(View opcionElegidaView)
     {
-        Log.d("DANE","CUESTIONARIO COMPLETO");
-        Toast toast = Toast.makeText(this, "CUSTOM FEEDBACK CUESTIONARIO COMPLETO", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-        toast.show();
+        ViewGroup container = (ViewGroup) findViewById(android.R.id.content);
+        final Resources res = container.getResources();
+        int defaultVelocitySlow     = res.getDimensionPixelOffset(com.github.jinatonic.confetti.R.dimen.default_velocity_slow);
+        int defaultVelocityNormal     = res.getDimensionPixelOffset(com.github.jinatonic.confetti.R.dimen.default_velocity_normal);
+
+        final List<Bitmap> allPossibleConfetti = com.github.jinatonic.confetti.Utils.generateConfettiBitmaps(new int[] { Color.RED, Color.YELLOW, Color.BLUE, Color.WHITE }, 40);
+        final int numConfetti = allPossibleConfetti.size();
+        final ConfettoGenerator generator = new ConfettoGenerator() {
+            @Override
+            public Confetto generateConfetto(Random random) {
+                final Bitmap bitmap = allPossibleConfetti.get(random.nextInt(numConfetti));
+                return new BitmapConfetto(bitmap);
+            }
+        };
+
+        final Context context = container.getContext();
+        final int x = container.getWidth() / 2;
+        final int y = container.getHeight() / 2;
+        final ConfettiSource confettiSource = new ConfettiSource(0, 0,
+                container.getWidth(), 0);
+
+        new ConfettiManager(context, generator, confettiSource, container)
+                .setVelocityX(0, defaultVelocitySlow)
+                .setVelocityY(defaultVelocityNormal, defaultVelocitySlow)
+                .setInitialRotation(180, 180)
+                .setRotationalAcceleration(360, 180)
+                .setTargetRotationalVelocity(360)
+                .setEmissionDuration(1500)
+                .setEmissionRate(200)
+                .animate();
+
+        MediaPlayer.create(this,R.raw.cuestionario_completo).start();
+
+
+//        Log.d("DANE","CUESTIONARIO COMPLETO");
+//        Toast toast = Toast.makeText(this, "CUSTOM FEEDBACK CUESTIONARIO COMPLETO", Toast.LENGTH_SHORT);
+//        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+//        toast.show();
 
         // Para continuar con un delay y darle tiempo a la animación
         Handler handler = new Handler();
