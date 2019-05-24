@@ -28,6 +28,8 @@ public abstract class AdaptadorVestuario extends ArrayAdapter<Clasificable> impl
     protected List _items;
     protected String nombreStr;
     protected String rutaImagen;
+    protected String tituloDialogoEliminar;
+    protected String textoDialogoEliminar;
     protected String funcionalidadProtegida = "";
 
     public AdaptadorVestuario(Activity context, List items) {
@@ -66,8 +68,8 @@ public abstract class AdaptadorVestuario extends ArrayAdapter<Clasificable> impl
             public void onClick(View v) {
                 final View view = v;
                 new AlertDialog.Builder(_context)
-                        .setTitle(_context.getResources().getString(R.string.dialogo_borrar_conjunto_titulo))
-                        .setMessage(_context.getResources().getString(R.string.dialogo_borrar_conjunto_texto))
+                        .setTitle(tituloDialogoEliminar)
+                        .setMessage(textoDialogoEliminar)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
