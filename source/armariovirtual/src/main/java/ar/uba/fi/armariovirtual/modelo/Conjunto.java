@@ -155,7 +155,7 @@ public class Conjunto extends Clasificable implements Comparable<Conjunto> {
         }
 
         // Eliminar la imagen
-        FileAndImageUtils.eliminarArchivo(getRutaImagen());
+        if(getRutaImagen() != null && !getRutaImagen().isEmpty())  FileAndImageUtils.eliminarArchivo(getRutaImagen());
 
         // Eliminar eventos asociados
         // Eliminar clasificaciones relacionadas

@@ -87,7 +87,7 @@ public class Prenda extends Clasificable implements Comparable<Prenda> {
         List<Conjunto> conjuntosAsociados = obtenerRelaciones(Conjunto.class);
 
         // Eliminar la imagen
-        FileAndImageUtils.eliminarArchivo(getRutaImagen());
+        if(getRutaImagen() != null && !getRutaImagen().isEmpty())  FileAndImageUtils.eliminarArchivo(getRutaImagen());
 
         boolean res = super.delete();
 
