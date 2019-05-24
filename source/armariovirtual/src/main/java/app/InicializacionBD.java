@@ -168,7 +168,6 @@ public class InicializacionBD {
         clasificacionRemeraUtilidad.agregarOpcionElegida(OpcionClasificacion.obtener(opcionDeporte));
         remera.agregarClasificacion(clasificacionRemeraUtilidad);
 
-        remera.setFavorito(true);
         remera.save();
 
         // Bermuda
@@ -437,7 +436,6 @@ public class InicializacionBD {
         clasificacionZapatillasUtilidad.agregarOpcionElegida(OpcionClasificacion.obtener(opcionEscuela));
         zapatillas.agregarClasificacion(clasificacionZapatillasUtilidad);
 
-        zapatillas.setFavorito(true);
         zapatillas.save();
 
         // =================================
