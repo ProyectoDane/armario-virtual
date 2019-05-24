@@ -106,7 +106,7 @@ public class AdaptadorClasificacion extends ArrayAdapter<Clasificacion>
         _clasificaciones = clasificaciones;
 
         // Inicializo las clasificaciones elegidas desde la BD si no se inicializaron previamente
-        if(_clasificaciones.isEmpty())
+        if(_clasificacionesElegidas.isEmpty())
         {
             for(int i = 0; i < _clasificaciones.size(); i++)
             {
