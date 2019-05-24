@@ -105,15 +105,18 @@ public class AdaptadorClasificacion extends ArrayAdapter<Clasificacion>
     public void inicializarClasificaciones(List<Clasificacion> clasificaciones) {
         _clasificaciones = clasificaciones;
 
-        // Inicializo las clasificaciones elegidas desde la BD
-        for(int i = 0; i < _clasificaciones.size(); i++)
+        // Inicializo las clasificaciones elegidas desde la BD si no se inicializaron previamente
+        if(_clasificaciones.isEmpty())
         {
-            Clasificacion clasificacion    = _clasificaciones.get(i);
-            ArrayList<String> opcionesClasificacionElegidasStr = new ArrayList<>();
-            for(OpcionClasificacion opcionClasificacionSeleccionada : clasificacion.obtenerOpcionesElegidas()) {
-                opcionesClasificacionElegidasStr.add(opcionClasificacionSeleccionada.getValor());
+            for(int i = 0; i < _clasificaciones.size(); i++)
+            {
+                Clasificacion clasificacion    = _clasificaciones.get(i);
+                ArrayList<String> opcionesClasificacionElegidasStr = new ArrayList<>();
+                for(OpcionClasificacion opcionClasificacionSeleccionada : clasificacion.obtenerOpcionesElegidas()) {
+                    opcionesClasificacionElegidasStr.add(opcionClasificacionSeleccionada.getValor());
+                }
+                _clasificacionesElegidas.put(clasificacion, opcionesClasificacionElegidasStr);
             }
-            _clasificacionesElegidas.put(clasificacion, opcionesClasificacionElegidasStr);
         }
 
 
