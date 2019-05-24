@@ -36,6 +36,8 @@ public class AdaptadorConjunto extends AdaptadorVestuario {
         Conjunto conjunto = (Conjunto) _items.get(position);
         nombreStr = conjunto.getNombre();
         rutaImagen = conjunto.getRutaImagen();
+        tituloDialogoEliminar = _context.getResources().getString(R.string.dialogo_borrar_conjunto_titulo);
+        textoDialogoEliminar = _context.getResources().getString(R.string.dialogo_borrar_conjunto_texto);
 
         return super.getView(position, convertView, parent);
     }

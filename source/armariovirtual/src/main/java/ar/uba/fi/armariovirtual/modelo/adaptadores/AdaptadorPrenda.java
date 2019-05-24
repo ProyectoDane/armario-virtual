@@ -37,6 +37,8 @@ public class AdaptadorPrenda extends AdaptadorVestuario {
         Prenda prenda = (Prenda) _items.get(position);
         nombreStr = prenda.getNombre();
         rutaImagen = prenda.getRutaImagen();
+        tituloDialogoEliminar = _context.getResources().getString(R.string.dialogo_borrar_prenda_titulo);
+        textoDialogoEliminar = _context.getResources().getString(R.string.dialogo_borrar_prenda_texto);
 
         return super.getView(position, convertView, parent);
     }
